@@ -37,6 +37,4 @@ app.post('/save', jsonParser, onSave);
 
 async function onGet(req, res) {
     let query = new ObjectID(req.params);
-
 }
-app.get()
