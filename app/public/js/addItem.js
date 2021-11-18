@@ -8,6 +8,7 @@ class AddItem {
         this.boxNum = '';
         this.itemNum = '';
         this.styleNum = '';
+        this.size = '';
         this.poshURL = '';
         this.ebayURL = '';
 
@@ -21,6 +22,7 @@ class AddItem {
         this.boxNumInput = document.querySelector('#boxNum');
         this.itemNumInput = document.querySelector('#itemNum');
         this.styleNumInput = document.querySelector('#styleNum');
+        this.sizeInput = document.querySelector('#size');
         this.poshURLInput = document.querySelector('#poshURL');
         this.ebayURLInput = document.querySelector('#ebayURL');
         this.addItem = document.querySelector("#add-item");
@@ -48,6 +50,7 @@ class AddItem {
             boxNum: this.boxNum,
             itemNum: this.itemNum,
             styleNum: this.styleNum,
+            size: this.size,
             poshURL: this.poshURL,
             ebayURL: this.ebayURL
         }
@@ -73,6 +76,7 @@ class AddItem {
         this.boxNum = this.boxNumInput.value;
         this.itemNum = this.itemNumInput.value;
         this.styleNum = this.styleNumInput.value;
+        this.size = this.sizeInput.value;
         this.poshURL = this.poshURLInput.value;
         this.ebayURL = this.ebayURLInput.value;
     }
