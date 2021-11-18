@@ -32,50 +32,95 @@
 </head>
 
 <form>
-    <div >
+    <div class="brand-box">
         <label for="brand">Brand</label>
         <br> </br>
-        <input  type="checkbox" id ="brand" placeholder = "brand"></input>
+        <input type="checkbox" id="brand" placeholder="brand">
+        <style>
+            input[type=text] {
+                padding: 12px 20px;
+                width: 100%;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-size: 20px;
+
+            }
+        </style>
+        </input>
     </div>
-    <div >
+    <div class="category-box">
         <label for="category">Category</label>
         <br> </br>
-        <input  type="checkbox" id ="category" placeholder = "category"></input>
+        <input type="checkbox" id="category" placeholder="category"></input>
     </div>
-    <div >
+    <div class="subcategory-box">
         <label for="subcategory">Subcategory</label>
         <br> </br>
-        <input  type="checkbox" id ="subcategory" placeholder = "subcategory"></input>
-    </div><div >
+        <input type="checkbox" id="subcategory" placeholder="subcategory"></input>
+    </div>
+    <div class="description-box">
         <label for="description">Description</label>
         <br> </br>
-        <input  type="checkbox" id ="description" placeholder = "description"></input>
+        <input type="checkbox" id="description" placeholder="description"></input>
     </div>
-     </div><div >
+    <div class="boxNum-box">
         <label for="boxNum">Box Number</label>
         <br> </br>
-        <input  type="checkbox" id ="boxNum" placeholder = "boxNum"></input>
+        <input type="checkbox" id="boxNum" placeholder="boxNum"></input>
     </div>
-    </div><div >
+    <div class="itemNum-box">
         <label for="itemNum">item Number</label>
         <br> </br>
-        <input  type="checkbox" id ="itemNum" placeholder = "itemNum"></input>
+        <input type="checkbox" id="itemNum" placeholder="itemNum"></input>
     </div>
-    </div><div >
+    <div class="styleNum-box">
         <label for="styleNum">Style Number</label>
         <br> </br>
-        <input  type="checkbox" id ="styleNum" placeholder = "styleNum"></input>
+        <input type="checkbox" id="styleNum" placeholder="styleNum"></input>
     </div>
-    </div><div >
+    <div class="posh-box">
         <label for="poshURL">Poshmark</label>
         <br> </br>
-        <input  type="checkbox" id ="poshURL" placeholder = "poshURL"></input>
+        <input type="checkbox" id="poshURL" placeholder="poshURL"></input>
     </div>
-    </div><div >
-        <label for="ebayURL">eBay</label>
+
+    <div>
+        <label for="ebay-box">eBay</label>
         <br> </br>
-        <input  type="checkbox" id ="ebayURL" placeholder = "ebayURL"></input>
+        <input type="checkbox" id="ebayURL" placeholder="ebayURL"></input>
     </div>
-    
+
+
+    <div class="dropdown1">
+        <select name="Category" id="catDropdown">
+            <option value="shirt">T-SHIRT</option>
+            <option value="shirt">LONGSLEEVE</option>
+            <option value="shirt">Pants </option>
+        </select>
+
+    </div>
+    <div class="dropdown2">
+        <select name="subcategory" id="subcatDropdown">
+            <option value="shirt">T-SHIRT</option>
+            <option value="shirt">LONGSLEEVE</option>
+            <option value="shirt">Shorts</option>
+            <style>
+                input[type=select] {
+                    padding: 12px 20px;
+                    width: 100%;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    font-size: 20px;
+
+                }
+            </style>
+        </select>
+
+    </div>
+
+
+
 </form>
+
+
 </html>
