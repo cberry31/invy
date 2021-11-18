@@ -2,12 +2,13 @@ class App {
     constructor() {
         const urlPathString = window.location.pathname;
         const parts = urlPathString.split('/');
+        console.log(urlPathString);
         if (parts.length > 2 && parts[1] === 'id') {
             const itemID = parts[2];
             this._showInventory(itemID);
         } else if (parts[1] === 'search') {
             this._searchInventory();
-        } else {
+        } else if (parts[1] === 'add') {
             this._addIntoInventory();
         }
     }
@@ -19,9 +20,8 @@ class App {
     }
 
     _addIntoInventory() {
-        const viewContainer = document.querySelector('#add-item');
-        //const creatorView = new CreatorView(viewContainer);
-        //Do this with the new js files
+        const viewContainer = document.querySelector('#addItem');
+        const addItem = new AddItem(viewContainer);
     }
 
     _showInventory(itemID) {

@@ -1,7 +1,6 @@
-class addItem {
+class AddItem {
     constructor(containerElement) {
         this.containerElement = containerElement;
-
         this.brand = '';
         this.category = '';
         this.subcategory = '';
@@ -12,6 +11,9 @@ class addItem {
         this.poshURL = '';
         this.ebayURL = '';
 
+        this.branPrev = document.querySelector('#brand-preview');
+
+        this.form = document.querySelector('form');
         this.brandInput = document.querySelector('#brand');
         this.categoryInput = document.querySelector('#category');
         this.subcategoryInput = document.querySelector('#subcategory');
@@ -21,40 +23,33 @@ class addItem {
         this.styleNumInput = document.querySelector('#styleNum');
         this.poshURLInput = document.querySelector('#poshURL');
         this.ebayURLInput = document.querySelector('#ebayURL');
+        this.addItem = document.querySelector("#add-item");
 
-        this.onFormChange = this.onFormChange.bind(this);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-        this.saveValuesFromInput = this.saveValuesFromInput.bind(this);
-        this.updateView = this.updateView.bind(this);
+        this._onFormChange = this._onFormChange.bind(this);
+        this._onFormSubmit = this._onFormSubmit.bind(this);
+        this._saveValuesFromInput = this._saveValuesFromInput.bind(this);
+        this.form.addEventListener('submit', this._onFormSubmit);
 
-        this.styleInput.addEventListener('change', this.onFormChange);
-        this.messageInput.addEventListener('keyup', this.onFormChange);
-        this.form.addEventListener('submit', this.onFormSubmit);
-
-        this.saveValuesFromInput();
-        this.updateView();
-
+        this._saveValuesFromInput();
     }
 
-    onFormChange() {
-        this.saveValuesFromInput();
-        this.updateView()
+    _onFormChange() {
+        this._saveValuesFromInput();
     }
 
-    async onFormSubmit(event) {
+    async _onFormSubmit(event) {
         event.preventDefault();
-
-        this.saveValuesFromInput();
+        this._saveValuesFromInput();
         const params = {
-            brand =  this.brand,
-            category =this.category,
-            subcategory = this.subcategory,
-            description = this.description,
-            boxNum = this.boxNum,
-            itemNum = this.itemNum,
-            styleNum = this.styleNum,
-            poshURL = this.poshURL,
-            ebayURL = this.ebayURL
+            brand: this.brand,
+            category: this.category,
+            subcategory: this.subcategory,
+            description: this.description,
+            boxNum: this.boxNum,
+            itemNum: this.itemNum,
+            styleNum: this.styleNum,
+            poshURL: this.poshURL,
+            ebayURL: this.ebayURL
         }
 
         const fetchOptions = {
@@ -66,27 +61,19 @@ class addItem {
             body: JSON.stringify(params)
         };
 
-        // const result = await fetch('/save', fetchOptions);
-        // const json = await result.json();
-
-        // this.creatorView.classList.add('hidden');
-        // this.cardLink.href = '/id/' + json.cardId;
-        // this.statusView.classList.remove('hidden');
+        const result = await fetch('/save', fetchOptions);
+        const json = await result.json();
     }
 
-    saveValuesFromInput() {
-        this.brand = this.brandInput;
-        this.category = this.categoryInput;
-        this.subcategory = this.subcategory;
-        this.description = this.descriptionInput;
-        this.boxNum = this.boxNumInput;
-        this.itemNum = this.itemNumInput;
-        this.styleNum = this.styleNumInput;
-        this.poshURL = this.poshURL;
-        this.ebayURL = this.ebayURL;
-    }
-
-    updateView() {
-        //TODO see what needs to be done here
+    _saveValuesFromInput() {
+        this.brand = this.brandInput.value;
+        this.category = this.categoryInput.value;
+        this.subcategory = this.subcategoryInput.value;
+        this.description = this.descriptionInput.value;
+        this.boxNum = this.boxNumInput.value;
+        this.itemNum = this.itemNumInput.value;
+        this.styleNum = this.styleNumInput.value;
+        this.poshURL = this.poshURLInput.value;
+        this.ebayURL = this.ebayURLInput.value;
     }
 }

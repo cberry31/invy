@@ -29,12 +29,26 @@ app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-async function onSave(req, res) {
+app.get('/add', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'public', 'add-item.html'));
+});
+
+app.get('/search', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'public', 'search.html'));
+});
+
+async function onSaveCard(req, res) {
     const result = await collection.insertOne(req.body);
+    console.log(`Document ID: ${result.insertedId}`)
+    result.ops[0].itemId = result.insertedId;
+    res.json(result.ops[0]);
 }
-app.post('/save', jsonParser, onSave);
+app.post('/save', jsonParser, onSaveCard);
 
 
 async function onGet(req, res) {
-    let query = new ObjectID(req.params);
+    let id = new ObjectID(req.params.itemId);
+    const response = await collection.findOne({ "_id": id });
+    res.json(response);
 }
+app.get('/get/:itemId', onGet);
