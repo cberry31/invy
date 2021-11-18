@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CS453 e-cards</title>
+    <link rel="stylesheet" href="/css/card-style.css">
+    <script src="/js/card-view.js" defer></script>
+    <script src="/js/creator-view.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/main.js" defer></script>
+  </head>
+  <body>
+
+    <!-- View: Card creator -->
+    <section class="main hidden" id="creator-view">
+      <h1>CS453 e-cards</h1>
+      <h2>Preview</h2>
+      <section id="card-view">
+        <div id="card-image"></div>
+        <div id="card-message"></div>
+      </section>
+      <form>
+        <h3>Choose a style:</h3>
+        <select id="card-style-input">
+          <option value="graduation">Happy Graduation</option>
+          <option value="fathersday">Happy Fathers Day</option>
+          <option value="july4">Happy 4th of July</option>
+        </select>
+
+        <h3>Write a message:</h3>
+        <textarea id="card-message-input">Hi Pooh,
+
+🎉 Congrats!!! 🎉
+
+<3 Piglet</textarea>
+
+        <input type="submit" value="Create card">
+      </form>
+    </section>
+
+    <!-- View: Card created message -->
+    <section class="main hidden" id="status-view">
+      <h1>Card created!</h1>
+      <p>
+        <a href="" id="card-link">View your card</a>
+      </p>
+      <p>
+        <a href="/">Create another card</a>
+      </p>
+    </section>
+
+    <!-- View: Display card ID -->
+    <section class="main hidden" id="card-container">
+      <h1>CS453 e-cards</h1>
+      <section id="card-view">
+        <div id="card-image" class=""></div>
+        <div id="card-message"></div>
+      </section>
+    </section>
+  </body>
+</html>
