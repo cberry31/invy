@@ -15,8 +15,7 @@ class App {
 
     _searchInventory() {
         const viewContainer = document.querySelector('#search');
-        //const creatorView = new CreatorView(viewContainer);
-        //Do this with the new js files
+        const searchItem = new Search(viewContainer);
     }
 
     _addIntoInventory() {

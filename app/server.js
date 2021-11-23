@@ -37,14 +37,13 @@ app.get('/search', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'search.html'));
 });
 
-async function onSaveCard(req, res) {
+async function onSave(req, res) {
     const result = await collection.insertOne(req.body);
     console.log(`Document ID: ${result.insertedId}`)
     result.ops[0].itemId = result.insertedId;
     res.json(result.ops[0]);
 }
-app.post('/save', jsonParser, onSaveCard);
-
+app.post('/save', jsonParser, onSave);
 
 async function onGet(req, res) {
     let id = new ObjectID(req.params.itemId);
@@ -52,3 +51,26 @@ async function onGet(req, res) {
     res.json(response);
 }
 app.get('/get/:itemId', onGet);
+
+async function onSearch(req, res) {
+    let searchQuery = await createQuery(req.body);
+    let result = await getResults(searchQuery);
+    res.json(result);
+}
+app.post('/query', jsonParser, onSearch)
+
+async function createQuery(params) {
+    Object.keys(params).forEach(k => (!params[k] && params[k] !== undefined) && delete params[k]);
+    return params
+}
+
+function getResults(searchQuery) {
+    return new Promise(data => {
+        collection.find(searchQuery).toArray(function (err, result) {
+            if (err) {
+                throw err;
+            }
+            data(result);
+        });
+    });
+}

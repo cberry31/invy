@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<link href="searchCss.css" rel="stylesheet" type="text/css">
 
 <body>
     <meta charset="UTF-8">
@@ -16,93 +15,89 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="searchCss.css" rel="stylesheet" type="text/css">
+    <script src="/js/search.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/main.js" defer></script>
 </head>
 
-<form>
-    <div class="gridParent">
-        <div class="gridlayout">
+<section id="search">
+    <form>
+        <div class="gridParent">
+            <div class="gridlayout">
+                <style>
+                    input[type=text] {
+                        padding: 12px 20px;
+                        width: 100%;
+                        margin: 8px 0;
+                        box-sizing: border-box;
+                        font-size: 20px;
+                        background-color: #8bb3c4;
+                    }
+                </style>
 
-            <style>
-                input[type=text] {
-                    padding: 12px 20px;
-                    width: 100%;
-                    margin: 8px 0;
-                    box-sizing: border-box;
-                    font-size: 20px;
-                    background-color: #8bb3c4;
-                }
-            </style>
+                <div class="brand-box">
+                    <label for="brand">BRAND</label>
+                    <input type="text" id="brand" placeholder="BRAND">
 
-            <div class="brand-box">
-                <label for="brand">BRAND</label>
-                <input type="text" id="brand" placeholder="BRAND">
+                    </input>
+                </div>
 
-                </input>
+                <div class="brand-box">
+                    <label for="category">CATEGORY</label>
+                    <input type="text" id="category" placeholder="CATEGORY">
+                    </input>
+                </div>
+
+                <div class="brand-box">
+                    <label for="subcategory">SUBCATEGORY</label>
+                    <input type="text" id="subcategory" placeholder="SUBCATEGORY">
+                    </input>
+                </div>
+
+                <div class="brand-box">
+                    <label for="description">DESCRIPTION</label>
+                    <input type="text" id="description" placeholder="DESCRIPTION">
+                    </input>
+                </div>
+
+                <div class="brand-box">
+                    <label for="boxNum">BOX NUMBER</label>
+                    <input type="text" id="boxNum" placeholder="BOX NUMBER">
+                    </input>
+                </div>
+
+                <div class="brand-box">
+                    <label for="itemNum">ITEM NUMBER</label>
+                    <input type="text" id="itemNum" placeholder="ITEM NUMBER">
+                    </input>
+                </div>
+
+                <div class="brand-box">
+                    <label for="styleNum">STYLE NUMBER</label>
+                    <input type="text" id="styleNum" placeholder="STYLE NUMBER">
+                </div>
+
+                <div class="brand-box">
+                    <label for="size">SIZE</label>
+                    <input type="text" id="size" placeholder="SIZE">
+                </div>
+
+                <div class="brand-box">
+                    <label for="poshURL">POSHMARK</label>
+                    <input type="text" id="poshURL" placeholder="poshURL">
+                    </input>
+                </div>
+
+                <div class="brand-box">
+                    <label for="brand-box">eBay</label>
+                    <input type="text" id="ebayURL" placeholder="ebayURL">
+                    </input>
+                </div>
+                <button class="submit2" type="submit_search">SUBMIT</button>
             </div>
-
-
-            <div class="brand-box">
-                <label for="category">CATEGORY</label>
-                <input type="text" id="category" placeholder="CATEGORY">
-                </input>
-            </div>
-
-
-            <div class="brand-box">
-                <label for="subcategory">SUBCATEGORY</label>
-                <input type="text" id="subcategory" placeholder="SUBCATEGORY">
-                </input>
-            </div>
-
-
-            <div class="brand-box">
-                <label for="description">DESCRIPTION</label>
-                <input type="text" id="description" placeholder="DESCRIPTION">
-                </input>
-            </div>
-
-
-            <div class="brand-box">
-                <label for="boxNum">BOX NUMBER</label>
-                <input type="text" id="boxNum" placeholder="BOX NUMBER">
-                </input>
-            </div>
-
-
-            <div class="brand-box">
-                <label for="itemNum">ITEM NUMBER</label>
-                <input type="text" id="itemNum" placeholder="ITEM NUMBER">
-                </input>
-            </div>
-
-
-            <div class="brand-box">
-                <label for="styleNum">STYLE NUMBER</label>
-                <input type="text" id="styleNum" placeholder="STYLE NUMBER">
-            </div>
-
-            <div class="brand-box">
-                <label for="size">SIZE</label>
-                <input type="text" id="size" placeholder="SIZE">
-            </div>
-
-
-            <div class="brand-box">
-                <label for="poshURL">POSHMARK</label>
-                <input type="text" id="poshURL" placeholder="poshURL">
-                </input>
-            </div>
-
-            <div class="brand-box">
-                <label for="brand-box">eBay</label>
-                <input type="text" id="ebayURL" placeholder="ebayURL">
-                </input>
-            </div>
-            <button class="submit2" type="submit">SUBMIT</button>
+            <h1>tested for second grid 2</h1>
         </div>
-        <h1>tested for second grid 2</h1>
-    </div>
-
-</form>
+    </form>
+</section>
 
 </html>
