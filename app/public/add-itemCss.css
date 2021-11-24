@@ -54,7 +54,7 @@ html {
     text-align: center;
     margin: 25px auto 0 auto;
     color: #FFF;
-    width: 45%;
+    width: 95%;
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 50px;
     letter-spacing: 30px;
@@ -85,7 +85,9 @@ html {
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 30px;
   grid-row-gap: 25px;
-  margin: 25px 20% 25px 20%;
+  margin: 25px 20% 25px 12%;
+  width: 75%;
+
 
 }
 
