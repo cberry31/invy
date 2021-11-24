@@ -27,6 +27,8 @@ class Search {
         this.ebayURLInput = document.querySelector('#ebayURL');
         this.addItem = document.querySelector("#add-item");
 
+        this.box = document.getElementById("searchResults");
+
         this._onFormChange = this._onFormChange.bind(this);
         this._onFormSubmit = this._onFormSubmit.bind(this);
         this._saveValuesFromInput = this._saveValuesFromInput.bind(this);
@@ -41,6 +43,7 @@ class Search {
 
     async _onFormSubmit(event) {
         event.preventDefault();
+        this.box.innerHTML = "";
         this._saveValuesFromInput();
         const params = {
             brand: this.brand,
@@ -66,6 +69,9 @@ class Search {
 
         const result = await fetch('/query', fetchOptions);
         const json = await result.json();
+        for (let i in json) {
+            this._fillOutResults(json[i]);
+        }
     }
 
     _saveValuesFromInput() {
@@ -79,5 +85,42 @@ class Search {
         this.size = this.sizeInput.value;
         this.poshURL = this.poshURLInput.value;
         this.ebayURL = this.ebayURLInput.value;
+    }
+
+    _fillOutResults(item) {
+        let releventData = {
+            brand: item.brand,
+            size: item.size,
+            category: item.category,
+            subcategory: item.subcategory,
+            description: item.description,
+            styleNum: item.styleNum,
+            boxNum: item.boxNum,
+            itemNum: item.itemNum,
+            Poshmark: item.poshURL,
+            eBay: item.ebayURL
+        }
+        let searchResults = document.createElement("div");
+        searchResults.classList.add("rightColumnGrid");
+        for (let [key, value] of Object.entries(releventData)) {
+            if (value === undefined || value === null) {
+                value = "";
+            }
+            let innerDiv = document.createElement("div");
+            innerDiv.classList.add("textData");
+
+            if (key === "Poshmark" || key === "eBay") {
+                let a = document.createElement("a");
+                a.setAttribute('href', value);
+                a.setAttribute('target', '_blank')
+                a.innerHTML = key;
+                innerDiv.append(a);
+            } else {
+                let p = document.createElement("p");
+                innerDiv.append(value, p);
+            }
+            searchResults.append(innerDiv);
+        }
+        this.box.append(searchResults);
     }
 }
