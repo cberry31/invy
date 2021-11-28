@@ -113,10 +113,12 @@ class Search {
                 let a = document.createElement("a");
                 a.setAttribute('href', value);
                 a.setAttribute('target', '_blank')
+                a.classList.add("p_text");
                 a.innerHTML = key;
                 innerDiv.append(a);
             } else {
                 let p = document.createElement("p");
+                innerDiv.classList.add("p_text");
                 innerDiv.append(value, p);
             }
             searchResults.append(innerDiv);
@@ -124,8 +126,9 @@ class Search {
         let editButton = document.createElement("a");
         editButton.setAttribute('href', `/edit/${item._id}`);
         editButton.setAttribute("style", "text-decoration:none");
-        editButton.innerHTML = "<div> <p>EDIT</p> </div>";
-        // editButton.classList.add("");
+        editButton.innerHTML = "<p>EDIT</p>";
+        editButton.classList.add("textdata");
+        editButton.classList.add("p_text");
         searchResults.append(editButton);
         this.box.append(searchResults);
     }
