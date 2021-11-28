@@ -37,6 +37,10 @@ app.get('/search', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'search.html'));
 });
 
+app.get('/edit/:itemID', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'public', 'edit.html'));
+});
+
 async function onSave(req, res) {
     Object.keys(req.body).forEach(k => (!req.body[k] && req.body[k] !== undefined) && delete req.body[k]);
     const result = await collection.insertOne(req.body);
@@ -75,3 +79,12 @@ function getResults(searchQuery) {
         });
     });
 }
+
+async function editItem(req, res) {
+    // let id = req.body._id;
+    let id = new ObjectID(req.body._id);
+    delete req.body._id;
+    // const response = await collection.findOne({ "_id": id });
+    let newItem = await collection.replaceOne({ "_id": id }, req.body);
+}
+app.post('/saveEdit', jsonParser, editItem);

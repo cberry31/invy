@@ -1,5 +1,5 @@
-class Search {
-    constructor(containerElement) {
+class EditItem {
+    constructor(containerElement, itemId) {
         this.containerElement = containerElement;
         this.brand = '';
         this.category = '';
@@ -11,6 +11,8 @@ class Search {
         this.size = '';
         this.poshURL = '';
         this.ebayURL = '';
+
+        this.itemId = itemId;
 
         this.branPrev = document.querySelector('#brand-preview');
 
@@ -27,14 +29,12 @@ class Search {
         this.ebayURLInput = document.querySelector('#ebayURL');
         this.addItem = document.querySelector("#add-item");
 
-        this.box = document.getElementById("searchResults");
-
         this._onFormChange = this._onFormChange.bind(this);
         this._onFormSubmit = this._onFormSubmit.bind(this);
         this._saveValuesFromInput = this._saveValuesFromInput.bind(this);
         this.form.addEventListener('submit', this._onFormSubmit);
 
-        this._saveValuesFromInput();
+        this._loadValues();
     }
 
     _onFormChange() {
@@ -43,7 +43,6 @@ class Search {
 
     async _onFormSubmit(event) {
         event.preventDefault();
-        this.box.innerHTML = "";
         this._saveValuesFromInput();
         const params = {
             brand: this.brand,
@@ -55,7 +54,8 @@ class Search {
             styleNum: this.styleNum,
             size: this.size,
             poshURL: this.poshURL,
-            ebayURL: this.ebayURL
+            ebayURL: this.ebayURL,
+            _id: this.itemId
         }
 
         const fetchOptions = {
@@ -67,11 +67,8 @@ class Search {
             body: JSON.stringify(params)
         };
 
-        const result = await fetch('/query', fetchOptions);
+        const result = await fetch('/saveEdit', fetchOptions);
         const json = await result.json();
-        for (let i in json) {
-            this._fillOutResults(json[i]);
-        }
     }
 
     _saveValuesFromInput() {
@@ -87,46 +84,26 @@ class Search {
         this.ebayURL = this.ebayURLInput.value;
     }
 
-    _fillOutResults(item) {
-        let releventData = {
-            brand: item.brand,
-            size: item.size,
-            category: item.category,
-            subcategory: item.subcategory,
-            description: item.description,
-            styleNum: item.styleNum,
-            boxNum: item.boxNum,
-            itemNum: item.itemNum,
-            Poshmark: item.poshURL,
-            eBay: item.ebayURL
-        }
-        let searchResults = document.createElement("div");
-        searchResults.classList.add("rightColumnGrid");
-        for (let [key, value] of Object.entries(releventData)) {
-            if (value === undefined || value === null) {
-                value = "";
-            }
-            let innerDiv = document.createElement("div");
-            innerDiv.classList.add("textData");
+    async _loadValues() {
+        const result = await fetch(`/get/${this.itemId}`);
+        const json = await result.json();
+        this.brandInput.value = this.getValue(json.brand);
+        this.categoryInput.value = this.getValue(json.category);
+        this.subcategoryInput.value = this.getValue(json.subcategory);
+        this.descriptionInput.value = this.getValue(json.description);
+        this.boxNumInput.value = this.getValue(json.boxNum);
+        this.itemNumInput.value = this.getValue(json.itemNum);
+        this.styleNumInput.value = this.getValue(json.styleNum);
+        this.sizeInput.value = this.getValue(json.size);
+        this.poshURLInput.value = this.getValue(json.poshURL);
+        this.ebayURLInput.value = this.getValue(json.ebayURL);
+        this._saveValuesFromInput();
+    }
 
-            if (key === "Poshmark" || key === "eBay") {
-                let a = document.createElement("a");
-                a.setAttribute('href', value);
-                a.setAttribute('target', '_blank')
-                a.innerHTML = key;
-                innerDiv.append(a);
-            } else {
-                let p = document.createElement("p");
-                innerDiv.append(value, p);
-            }
-            searchResults.append(innerDiv);
+    getValue(input) {
+        if (input === undefined || input === null) {
+            input = "";
         }
-        let editButton = document.createElement("a");
-        editButton.setAttribute('href', `/edit/${item._id}`);
-        editButton.setAttribute("style", "text-decoration:none");
-        editButton.innerHTML = "<div> <p>EDIT</p> </div>";
-        // editButton.classList.add("");
-        searchResults.append(editButton);
-        this.box.append(searchResults);
+        return input;
     }
 }
