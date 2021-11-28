@@ -37,6 +37,10 @@ app.get('/search', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'search.html'));
 });
 
+app.get('/edit/:itemID', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'public', 'edit.html'));
+});
+
 async function onSave(req, res) {
     Object.keys(req.body).forEach(k => (!req.body[k] && req.body[k] !== undefined) && delete req.body[k]);
     const result = await collection.insertOne(req.body);

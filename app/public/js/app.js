@@ -3,7 +3,7 @@ class App {
         const urlPathString = window.location.pathname;
         const parts = urlPathString.split('/');
         console.log(urlPathString);
-        if (parts.length > 2 && parts[1] === 'id') {
+        if (parts.length > 2 && parts[1] === 'edit') {
             const itemID = parts[2];
             this._showInventory(itemID);
         } else if (parts[1] === 'search') {
@@ -24,6 +24,7 @@ class App {
     }
 
     _showInventory(itemID) {
-        //TODO Add show inventory screen
+        const viewContainer = document.querySelector('#editItem');
+        const editItem = new EditItem(viewContainer, itemID);
     }
 }

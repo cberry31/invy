@@ -121,6 +121,12 @@ class Search {
             }
             searchResults.append(innerDiv);
         }
+        let editButton = document.createElement("a");
+        editButton.setAttribute('href', `/edit/${item._id}`);
+        editButton.setAttribute("style", "text-decoration:none");
+        editButton.innerHTML = "<div> <p>EDIT</p> </div>";
+        // editButton.classList.add("");
+        searchResults.append(editButton);
         this.box.append(searchResults);
     }
 }
