@@ -61,6 +61,7 @@ html {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 25px;
+    height:50%;
     margin: 0px 0px 0px 0px;
   
   }
@@ -117,9 +118,10 @@ html {
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 15px;
     /*border: 2px solid #8ecccc;*/
-    margin: 0px 0% 0px 0%;
-    text-align: initial;
-    padding-left:0% ;
+    text-align: left;
+    height: 20px;
+    
+    
   }
   .URL{
     color: #FFF;
@@ -140,9 +142,14 @@ html {
   } 
 
   .p_text{
+    color:white;
     text-align: left;
-    padding-left: 1%;
-    padding-top: 1%;
-    color: #FFF;
+    padding-left: 3%;
+    padding-top: 2%;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 15px;
+    /*border: 2px solid #8ecccc;*/
+    
+    
   }
   
