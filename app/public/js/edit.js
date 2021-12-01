@@ -26,6 +26,7 @@ class EditItem {
         this.poshURLInput = document.querySelector('#poshURL');
         this.ebayURLInput = document.querySelector('#ebayURL');
         this.addItem = document.querySelector("#add-item");
+        this.finishDelete = document.querySelector('#finish-delete')
 
         this._onFormChange = this._onFormChange.bind(this);
         this._onFormSubmit = this._onFormSubmit.bind(this);
@@ -35,6 +36,8 @@ class EditItem {
         // this.form.addEventListener('delete', this._onDelete);
         document.getElementById('submit').addEventListener("click", this._onFormSubmit);
         document.getElementById('delete').addEventListener("click", this._onDelete);
+
+        this.containerElement.classList.remove('hidden');
 
         this._loadValues();
     }
@@ -126,6 +129,8 @@ class EditItem {
         };
 
         const result = await fetch('/delete', fetchOptions);
-        window.location.href = '/search';
+        const json = await result.json();
+        this.containerElement.classList.add('hidden');
+        this.finishDelete.classList.remove('hidden');
     }
 }

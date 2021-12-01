@@ -90,5 +90,6 @@ app.post('/saveEdit', jsonParser, editItem);
 async function deleteItem(req, res) {
     let id = new ObjectID(req.body._id);
     await collection.deleteOne({ "_id": id });
+    res.json({ done: true });
 }
 app.post('/delete', jsonParser, deleteItem);

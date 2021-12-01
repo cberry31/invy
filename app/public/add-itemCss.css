@@ -149,3 +149,7 @@
     transition: ease-out 0.4s;
     text-align: center;
   }
+
+  .hidden {
+    display: none !important;
+  }
