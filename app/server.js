@@ -81,10 +81,14 @@ function getResults(searchQuery) {
 }
 
 async function editItem(req, res) {
-    // let id = req.body._id;
     let id = new ObjectID(req.body._id);
     delete req.body._id;
-    // const response = await collection.findOne({ "_id": id });
-    let newItem = await collection.replaceOne({ "_id": id }, req.body);
+    await collection.replaceOne({ "_id": id }, req.body);
 }
 app.post('/saveEdit', jsonParser, editItem);
+
+async function deleteItem(req, res) {
+    let id = new ObjectID(req.body._id);
+    await collection.deleteOne({ "_id": id });
+}
+app.post('/delete', jsonParser, deleteItem);

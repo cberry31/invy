@@ -14,8 +14,6 @@ class EditItem {
 
         this.itemId = itemId;
 
-        this.branPrev = document.querySelector('#brand-preview');
-
         this.form = document.querySelector('form');
         this.brandInput = document.querySelector('#brand');
         this.categoryInput = document.querySelector('#category');
@@ -31,8 +29,12 @@ class EditItem {
 
         this._onFormChange = this._onFormChange.bind(this);
         this._onFormSubmit = this._onFormSubmit.bind(this);
+        this._onDelete = this._onDelete.bind(this);
         this._saveValuesFromInput = this._saveValuesFromInput.bind(this);
-        this.form.addEventListener('submit', this._onFormSubmit);
+        // this.form.addEventListener('submit', this._onFormSubmit);
+        // this.form.addEventListener('delete', this._onDelete);
+        document.getElementById('submit').addEventListener("click", this._onFormSubmit);
+        document.getElementById('delete').addEventListener("click", this._onDelete);
 
         this._loadValues();
     }
@@ -105,5 +107,25 @@ class EditItem {
             input = "";
         }
         return input;
+    }
+
+    async _onDelete(event) {
+        event.preventDefault();
+        console.log("DELETE")
+        const params = {
+            _id: this.itemId
+        }
+
+        const fetchOptions = {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        };
+
+        const result = await fetch('/delete', fetchOptions);
+        window.location.href = '/search';
     }
 }
