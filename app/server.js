@@ -43,10 +43,15 @@ app.get('/edit/:itemID', function (req, res) {
 
 async function onSave(req, res) {
     Object.keys(req.body).forEach(k => (!req.body[k] && req.body[k] !== undefined) && delete req.body[k]);
-    const result = await collection.insertOne(req.body);
-    console.log(`Document ID: ${result.insertedId}`)
-    result.ops[0].itemId = result.insertedId;
-    res.json(result.ops[0]);
+    const isEmpty = !Object.keys(req.body).some(k => req.body[k] !== "");
+    if (!isEmpty) {
+        const result = await collection.insertOne(req.body);
+        console.log(`Document ID: ${result.insertedId}`);
+        result.ops[0].itemId = result.insertedId;
+        res.json(result.ops[0]);
+    } else {
+        res.json({ "_id": -1 });
+    }
 }
 app.post('/save', jsonParser, onSave);
 

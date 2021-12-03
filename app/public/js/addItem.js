@@ -66,6 +66,10 @@ class AddItem {
 
         const result = await fetch('/save', fetchOptions);
         const json = await result.json();
+        if (json._id !== -1) {
+            //Then send to other screen to go back home
+            console.log("ADDED");
+        }
     }
 
     _saveValuesFromInput() {
