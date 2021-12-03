@@ -149,7 +149,55 @@
     transition: ease-out 0.4s;
     text-align: center;
   }
-
+  .delete-but2:hover {  
+    box-shadow: inset 0 0 0 50px #50717b;
+  }  
   .hidden {
     display: none !important;
   }
+  .delete-but2{
+    color: #FFF;
+    border: 2px solid #8ecccc;
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 50px;
+    letter-spacing: 0.5px;
+    border: 4px solid #8ecccc;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #8ecccc;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+	  position: absolute;
+    width: 25%;
+    text-align: center;
+    margin-top: 7%;
+  margin-left: 3%;
+	
+  }
+  .delete-but1{
+    color: #cf2e2e;
+    justify-content: center;
+    border: 2px solid #8ecccc;
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 50px;
+    letter-spacing: 0.5px;
+    border: 4px solid #cf2e2e;
+    width: 100%;
+    text-align: center;
+    margin-left: 12%;
+  }
+ 
+ .container2 {
+  
+  display:grid;
+  grid-template-columns:1fr; 
+  margin: 5% 20% 25px 33%;
+  width: 25%;
+
+}
