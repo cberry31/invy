@@ -26,11 +26,14 @@ class AddItem {
         this.poshURLInput = document.querySelector('#poshURL');
         this.ebayURLInput = document.querySelector('#ebayURL');
         this.addItem = document.querySelector("#add-item");
+        this.finishAdd = document.querySelector('#finish-add');
 
         this._onFormChange = this._onFormChange.bind(this);
         this._onFormSubmit = this._onFormSubmit.bind(this);
         this._saveValuesFromInput = this._saveValuesFromInput.bind(this);
         this.form.addEventListener('submit', this._onFormSubmit);
+
+        this.containerElement.classList.remove('hidden');
 
         this._saveValuesFromInput();
     }
@@ -66,6 +69,12 @@ class AddItem {
 
         const result = await fetch('/save', fetchOptions);
         const json = await result.json();
+        if (json._id === -1) {
+            alert("Error: There was an error adding your item please try agian");
+        } else {
+            this.containerElement.classList.add('hidden');
+            this.finishAdd.classList.remove('hidden');
+        }
     }
 
     _saveValuesFromInput() {
