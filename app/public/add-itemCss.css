@@ -1,155 +1,206 @@
 /*css file */
 /*INVY Search system*/
 
-  html {
-    height: 10%;
-  }
-  
-  body {
-    height: 100%;
-    margin: 0;
-    background: #263136;
-  }
+html {
+  height: 10%;
+}
 
-  .submit{
-    text-align: right;
-    margin: 25px auto 0 auto;
-    color: #FFF;
-    width: 45%;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 50px;
-    letter-spacing: 30px;
-    border: 4px solid #8ecccc;
-    padding: 5px;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 #8ecccc;
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
-    text-align: center;
-  }
+body {
+  height: 100%;
+  margin: 0;
+  background: #263136;
+}
 
-  .submit:hover {  
-    box-shadow: inset 0 0 0 120px #50717b;
-  } 
+.submit{
+  text-align: right;
+  margin: 25px auto 0 auto;
+  color: #FFF;
+  width: 45%;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 50px;
+  letter-spacing: 30px;
+  border: 4px solid #8ecccc;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #8ecccc;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  text-align: center;
+}
 
-  .brand-text{
-    text-align: center;
-    color: #FFF;
-    width: 100%;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 25px;
-    letter-spacing: 15px;
-    border: 4px solid #8ecccc;
-    padding: 5px;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 #8ecccc;
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
-    text-align: center;
-  }
+.submit:hover {  
+  box-shadow: inset 0 0 0 120px #50717b;
+} 
 
-  .center {
-    text-align: center;
-    margin: 25px auto 0 auto;
-    color: #FFF;
-    width: 95%;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 50px;
-    letter-spacing: 30px;
-    border: 4px solid #8ecccc;
-    padding: 5px;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 #8ecccc;
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
-    text-align: center;
-  }
+.brand-text{
+  text-align: center;
+  color: #FFF;
+  width: 100%;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 25px;
+  letter-spacing: 15px;
+  border: 4px solid #8ecccc;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #8ecccc;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  text-align: center;
+}
 
-  .center:hover {  
-    box-shadow: inset 0 0 0 120px #50717b;
-  } 
- 
-  #outer {
-    width: 400px;
-    margin: 50px auto 0 auto;
-    text-align: center;
-  }
+.center {
+  text-align: center;
+  margin: 25px auto 0 auto;
+  color: #FFF;
+  width: 95%;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 50px;
+  letter-spacing: 30px;
+  border: 4px solid #8ecccc;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #8ecccc;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  text-align: center;
+}
 
-  .gridlayout{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 30px;
-    grid-row-gap: 25px;
-    margin: 25px 20% 25px 12%;
-    width: 75%;
-  }
+.center:hover {  
+  box-shadow: inset 0 0 0 120px #50717b;
+} 
 
-  .submit2{
-    text-align: right;
-    margin: 25px auto 15% auto;
-    color: #FFF;
-    width: 45%;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 50px;
-    letter-spacing: 30px;
-    border: 4px solid #8ecccc;
-    padding: 5px;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 #8ecccc;
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
-    text-align: center;
-    grid-column: span 2;
-    background: #263136;
-  }
-  .submit2:hover {  
-    box-shadow: inset 0 0 0 120px #50717b;
-  } 
+#outer {
+  width: 400px;
+  margin: 50px auto 0 auto;
+  text-align: center;
+}
 
-  .delete{
-    text-align: right;
-    margin: 25px auto 15% auto;
-    color: #FFF;
-    width: 45%;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 50px;
-    letter-spacing: 30px;
-    border: 4px solid #8ecccc;
-    padding: 5px;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 #8ecccc;
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
-    text-align: center;
-    grid-column: span 2;
-    background: #263136;
-  }
+.gridlayout{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 25px;
+  margin: 25px 20% 25px 12%;
+  width: 75%;
+}
 
-  .delete:hover {  
-    box-shadow: inset 0 0 0 120px #50717b;
-  } 
-  .bottomBut{
-    text-align: center;
-    color: #FFF;
-    width: 75%;
-    margin: auto;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 25px;
-    letter-spacing: 15px;
-    padding: 5px auto 10% auto;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 #8ecccc;
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
-    text-align: center;
-  }
+.submit2{
+  text-align: right;
+  margin: 25px auto 15% auto;
+  color: #FFF;
+  width: 45%;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 50px;
+  letter-spacing: 30px;
+  border: 4px solid #8ecccc;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #8ecccc;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  text-align: center;
+  grid-column: span 2;
+  background: #263136;
+}
+.submit2:hover {  
+  box-shadow: inset 0 0 0 120px #50717b;
+} 
 
-  .hidden {
-    display: none !important;
-  }
+.delete{
+  text-align: right;
+  margin: 25px auto 15% auto;
+  color: #FFF;
+  width: 45%;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 50px;
+  letter-spacing: 30px;
+  border: 4px solid #8ecccc;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #8ecccc;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  text-align: center;
+  grid-column: span 2;
+  background: #263136;
+}
+
+.delete:hover {  
+  box-shadow: inset 0 0 0 120px #50717b;
+} 
+.bottomBut{
+  text-align: center;
+  color: #FFF;
+  width: 75%;
+  margin: auto;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 25px;
+  letter-spacing: 15px;
+  padding: 5px auto 10% auto;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #8ecccc;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  text-align: center;
+}
+.delete-but2:hover {  
+  box-shadow: inset 0 0 0 50px #50717b;
+}  
+.hidden {
+  display: none !important;
+}
+.delete-but2{
+  color: #FFF;
+  border: 2px solid #8ecccc;
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 50px;
+  letter-spacing: 0.5px;
+  border: 4px solid #8ecccc;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #8ecccc;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+  position: absolute;
+  width: 25%;
+  text-align: center;
+  margin-top: 7%;
+  margin-left: 3%;
+}
+
+.delete-but1{
+  color: #cf2e2e;
+  justify-content: center;
+  border: 2px solid #8ecccc;
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 50px;
+  letter-spacing: 0.5px;
+  border: 4px solid #cf2e2e;
+  width: 100%;
+  text-align: center;
+  margin-left: 12%;
+}
+
+.container2 {
+  display:grid;
+  grid-template-columns:1fr; 
+  margin: 5% 20% 25px 33%;
+  width: 25%;
+}
+
+.added{
+  color: #42b883;
+  border: 4px solid #42b883;
+}

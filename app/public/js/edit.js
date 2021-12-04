@@ -32,8 +32,6 @@ class EditItem {
         this._onFormSubmit = this._onFormSubmit.bind(this);
         this._onDelete = this._onDelete.bind(this);
         this._saveValuesFromInput = this._saveValuesFromInput.bind(this);
-        // this.form.addEventListener('submit', this._onFormSubmit);
-        // this.form.addEventListener('delete', this._onDelete);
         document.getElementById('submit').addEventListener("click", this._onFormSubmit);
         document.getElementById('delete').addEventListener("click", this._onDelete);
 
