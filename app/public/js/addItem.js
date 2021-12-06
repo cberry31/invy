@@ -69,9 +69,11 @@ class AddItem {
 
         const result = await fetch('/save', fetchOptions);
         const json = await result.json();
-        if (json._id !== -1) {
-            //Then send to other screen to go back home
-            console.log("ADDED");
+        if (json._id === -1) {
+            alert("Error: There was an error adding your item please try agian");
+        } else {
+            this.containerElement.classList.add('hidden');
+            this.finishAdd.classList.remove('hidden');
         }
     }
 
